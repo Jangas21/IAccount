@@ -1,0 +1,7 @@
+python-telegram-bot==20.7
+google-api-python-client==2.151.0
+google-auth==2.35.0
+python-dotenv==1.0.1
+python-telegram-bot[job-queue]==20.7
+google-auth-oauthlib
+google-auth-httplib2
