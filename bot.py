@@ -582,17 +582,17 @@ async def ejecutar_programados(context):
 def main():
     application = ApplicationBuilder().token(BOT_TOKEN).build()
 
-    # JOB QUEUE / PROGRAMADOS
-    application.job_queue.run_daily(ejecutar_programados, time(7, 0))
-
-    # HANDLERS
+    # Handlers
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(menu_callback))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, text_handler))
 
-    # POLLING (Render Worker compatible)
-    print("Bot iniciado con polling...")
-    application.run_polling()
+    # Programados (DESPUÉS de build, ANTES de polling)
+    application.job_queue.run_daily(ejecutar_programados, time(7, 0))
+
+    print("Bot iniciado con polling (PTB 21 + Python 3.13)")
+    application.run_polling(close_loop=False)
+
 
 if __name__ == "__main__":
     main()

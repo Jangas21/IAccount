@@ -1,7 +1,6 @@
-python-telegram-bot==20.7
-google-api-python-client==2.151.0
-google-auth==2.35.0
-python-dotenv==1.0.1
-python-telegram-bot[job-queue]==20.7
-flask
-gunicorn==21.2.0
+python-telegram-bot>=21.0
+google-api-python-client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+python-dotenv
